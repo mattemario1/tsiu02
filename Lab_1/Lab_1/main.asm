@@ -29,7 +29,7 @@ Idle:
 Loop:
 		cpi		r20, 0
 		breq	Idle
-		call	Check_1
+		jmp		Check_1
 
 
 Get_KEY:
@@ -47,7 +47,7 @@ Check_1:
 		breq	Idle
 		ldi		r21, 4
 		clr		r22
-		call	Data
+		jmp		Data
 
 Data:
 		ldi		r16, 10 ; Hel DELAY ;kan va en 8
@@ -57,7 +57,7 @@ Data:
 		cpi		r21, 0
 		breq	Send
 		lsr		r22
-		call	Data
+		jmp		Data
 
 
 		
@@ -74,7 +74,7 @@ Check_Data:
 
 Send:
 		out		PORTB, r22
-		call	Idle
+		jmp		Idle
 
 
 DELAY:
