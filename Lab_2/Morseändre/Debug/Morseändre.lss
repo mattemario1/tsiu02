@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm Wed Nov 20 12:45:38 2019
+AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm Fri Nov 22 14:13:49 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
@@ -881,72 +881,112 @@ AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm Wed Nov 20 1
 000001 bf0e                      		out		SPH, r16
 000002 e50f                      		ldi		r16, LOW(RAMEND)
 000003 bf0d                      		out		SPL, r16
-                                 WORD:
-000004 4548
-000005 204a
-000006 4f44
-C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm(14): warning: .cseg .db misalignment - padding zero byte
-000007 0000                      		.db		"HEJ DO", 0
-                                 
-                                 .org	$0150
-                                 BTAB:
-000150 2020                      		.db		" ", $20
-000151 6041                      		.db		"A", $60
-000152 8842                      		.db		"B", $88
-000153 a843                      		.db		"C", $A8
-000154 9044                      		.db		"D", $90
-000155 4045                      		.db		"E", $40
-000156 2846                      		.db		"F", $28
-000157 d047                      		.db		"G", $D0
-000158 0848                      		.db		"H", $08
-000159 2049                      		.db		"I", $20
-00015a 784a                      		.db		"J", $78
-00015b b04b                      		.db		"K", $B0
-00015c 484c                      		.db		"L", $48
-00015d e04d                      		.db		"M", $E0
-00015e a04e                      		.db		"N", $A0
-00015f f04f                      		.db		"O", $F0
-000160 6850                      		.db		"P", $68
-000161 d851                      		.db		"Q", $D8
-000162 5052                      		.db		"R", $50
-000163 1053                      		.db		"S", $10
-000164 c054                      		.db		"T", $C0
-000165 3055                      		.db		"U", $30
-000166 1856                      		.db		"V", $18
-000167 7057                      		.db		"W", $70
-000168 9858                      		.db		"X", $98
-000169 b859                      		.db		"Y", $B8
-00016a c85a                      		.db		"Z", $C8
-                                 
-                                 
-                                 
-                                 COUNTER:
-00016b e020                      		ldi		r18, 0
+                                 		;
+000004 ef1f                      		ldi		r17, $FF
+000005 bb17                      		out		DDRB, r17
+                                 START:
+000006 e0f0                      		ldi		ZH, HIGH (WORD*2)
+000007 e5ee                      		ldi		ZL, LOW (WORD*2)
                                  LOOKUP:
-00016c e0f0                      		ldi		ZH, HIGH (WORD*2)
-00016d e0e8                      		ldi		ZL, LOW (WORD*2)
-00016e f459                      		brne	END
-00016f 0fe2                      		add		ZL, r18
-000170 9104                      		lpm		r16, Z
-000171 9523                      		inc		r18
-000172 e0f2                      		ldi		ZH, HIGH (BTAB*2)
-000173 eae0                      		ldi		ZL, LOW (BTAB*2)
+000008 9105                      		lpm		r16, Z+
+000009 3000                      		cpi		r16, 0
+00000a f3d9                      		breq	START
+00000b 5401                      		subi	r16, $41
+00000c 93ff                      		push	ZH
+00000d 93ef                      		push	ZL
+00000e e0f2                      		ldi		ZH, HIGH (BTAB*2)
+00000f eae0                      		ldi		ZL, LOW (BTAB*2)
+000010 0fe0                      		add		ZL, r16
+000011 9104                      		lpm		r16, Z
+000012 91ff                      		pop		ZH
+000013 91ef                      		pop		ZL
+000014 940e 0017                 		call	SEND
+000016 cff1                      		rjmp	LOOKUP
+                                 
+                                 SEND:
+000017 3800                      		cpi		r16, $80
+000018 f071                      		breq	RETURN
+000019 0f00                      		lsl		r16
+00001a f410                      		brcc	SHORT_BEEP
+00001b 940e 0020                 		call	SOUND
+                                 SHORT_BEEP:
+00001d 940e 0020                 		call	SOUND
+00001f cff7                      		rjmp	SEND
+                                 
+                                 SOUND:
+000020 e011                      		ldi		r17, 1	//hur l√•ngt beepet ska va
+                                 WAVE:
+000021 ef2f                      		ldi		r18, $FF
+000022 bb28                      		out		PORTB, r18
+                                 		;call	DELAY
+000023 e020                      		ldi		r18, $00
+000024 bb28                      		out		PORTB, r18
+                                 		;call	DELAY
+000025 951a                      		dec		r17
+000026 f7d1                      		brne	WAVE
+                                 RETURN:
+000027 9508                      		ret
+                                 
+                                 DELAY:
+000028 e04a                      		ldi		r20, 10
+                                 YTTRE:
+000029 e15f                      		ldi		r21, $1F
+                                 INNRE:
+00002a 955a                      		dec		r21
+00002b f7f1                      		brne	INNRE
+00002c 954a                      		dec		r20
+00002d f7d9                      		brne	YTTRE
+00002e 9508                      		ret
+                                 		
+                                 WORD:
+00002f 4241
+000030 0043                      		.db		"ABC", 0
+                                 
+                                 .org	$150
+                                 BTAB:
+                                 		
+000150 8860
+000151 90a8
+000152 2840
+000153 08d0
+000154 7820
+000155 48b0
+000156 a0e0
+000157 68f0
+000158 50d8
+000159 c010
+00015a 1830
+00015b 9870
+00015c c8b8
+C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm(76): warning: .cseg .db misalignment - padding zero byte
+00015d 0000                      		.db		$60, $88, $A8, $90, $40, $28, $D0, $08, $20, $78, $B0, $48,$E0, $A0, $F0, $68, $D8, $50, $10, $C0, $30, $18, $70, $98, $B8, $C8, $00
+                                 		//inget mellanslag
+                                 
+                                 
+                                 /*COUNTER:
+                                 		ldi		r18, 0
+                                 LOOKUP:
+                                 		ldi		ZH, HIGH (WORD*2)
+                                 		ldi		ZL, LOW (WORD*2)
+                                 		//brne	END
+                                 		add		ZL, r18
+                                 		lpm		r16, Z
+                                 		inc		r18
+                                 		ldi		ZH, HIGH (BTAB*2)
+                                 		ldi		ZL, LOW (BTAB*2)
                                  INNRELOOP:
-000174 9114                      		lpm		r17, Z
-000175 9632                      		adiw	Z, 2
-000176 1701                      		cp		r16, r17
-000177 f009                      		breq	SEND
-000178 cffb                      		rjmp	INNRELOOP
+                                 		lpm		r17, Z
+                                 		adiw	Z, 2
+                                 		cp		r16, r17
+                                 		breq	SEND
+                                 		rjmp	INNRELOOP
                                  
                                  SEND:	
-000179 cff2                      		rjmp	LOOKUP
+                                 		rjmp	LOOKUP
                                  		
                                  END:
-00017a cfff                      		rjmp	END
-                                 
-                                 		
-                                 
-                                 
+                                 		rjmp	END
+                                 */
 
 
 RESOURCE USE INFORMATION
@@ -964,39 +1004,39 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega16A" register use summary:
-x  :   0 y  :   0 z  :   3 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
+x  :   0 y  :   0 z  :   2 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   6 r17:   2 r18:   3 r19:   0 r20:   0 
-r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
-r29:   0 r30:   3 r31:   2 
-Registers used: 6 out of 35 (17.1%)
+r13:   0 r14:   0 r15:   0 r16:  11 r17:   4 r18:   4 r19:   0 r20:   2 
+r21:   2 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
+r29:   0 r30:   5 r31:   4 
+Registers used: 8 out of 35 (22.9%)
 
 "ATmega16A" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   1 and   :   0 
+.lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   1 brge  :   0 brhc  :   0 
+brcc  :   1 brcs  :   0 break :   0 breq  :   2 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   1 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
+brne  :   3 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   3 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
-clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   1 cpc   :   0 
-cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   1 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :   7 lds   :   0 lpm   :   4 lsl   :   0 
+clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
+cpi   :   2 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   0 
+ld    :   0 ldd   :   0 ldi   :  12 lds   :   0 lpm   :   3 lsl   :   1 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   2 pop   :   0 
-push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   3 rol   :   0 
+neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   5 pop   :   2 
+push  :   2 rcall :   0 ret   :   2 reti  :   0 rjmp  :   2 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
-sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 10 out of 113 (8.8%)
+sub   :   0 subi  :   1 swap  :   0 tst   :   0 wdr   :   0 
+Instructions used: 16 out of 113 (14.2%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0002f6     40     62    102   16384   0.6%
+[.cseg] 0x000000 0x0002bc     94     32    126   16384   0.8%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
