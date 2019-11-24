@@ -24,16 +24,17 @@
  <LABELS>
   <INIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>8</LINE></INIT>
   <START><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>16</LINE></START>
-  <WORD><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>70</LINE></WORD>
+  <WORD><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>79</LINE></WORD>
   <LOOKUP><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>19</LINE></LOOKUP>
-  <BTAB><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>74</LINE></BTAB>
-  <SEND><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>35</LINE></SEND>
-  <RETURN><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>56</LINE></RETURN>
-  <SHORT_BEEP><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>41</LINE></SHORT_BEEP>
-  <SOUND><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>45</LINE></SOUND>
-  <WAVE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>47</LINE></WAVE>
-  <DELAY><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>59</LINE></DELAY>
-  <YTTRE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>61</LINE></YTTRE>
-  <INNRE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>63</LINE></INNRE>
+  <SPACE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>37</LINE></SPACE>
+  <BTAB><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>83</LINE></BTAB>
+  <SEND><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>42</LINE></SEND>
+  <RETURN><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>63</LINE></RETURN>
+  <SHORT_BEEP><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>48</LINE></SHORT_BEEP>
+  <SOUND><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>52</LINE></SOUND>
+  <WAVE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>54</LINE></WAVE>
+  <DELAY><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>66</LINE></DELAY>
+  <YTTRE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>68</LINE></YTTRE>
+  <INNRE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_2\Morseändre\main.asm</FILE><LINE>70</LINE></INNRE>
  </LABELS>
 </ASSEMBLER_INFO>

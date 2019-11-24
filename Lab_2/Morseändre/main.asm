@@ -20,6 +20,8 @@ LOOKUP:
 		lpm		r16, Z+
 		cpi		r16, 0
 		breq	START
+		cpi		r16, $20
+		breq	SPACE
 		subi	r16, $41
 		push	ZH
 		push	ZL
@@ -27,11 +29,16 @@ LOOKUP:
 		ldi		ZL, LOW (BTAB*2)
 		add		ZL, r16
 		lpm		r16, Z
-		pop		ZH
 		pop		ZL
+		pop		ZH
 		call	SEND
 		rjmp	LOOKUP
 
+SPACE:
+		rjmp	LOOKUP
+
+
+;--------------------------;
 SEND:
 		cpi		r16, $80
 		breq	RETURN
@@ -55,7 +62,7 @@ WAVE:
 		brne	WAVE
 RETURN:
 		ret
-
+;--------------------------;
 DELAY:
 		ldi		r20, 10
 YTTRE:
@@ -66,38 +73,14 @@ INNRE:
 		dec		r20
 		brne	YTTRE
 		ret
-		
-WORD:
-		.db		"ABC", 0
 
-.org	$150
+;--------------------------;	
+		.org	$100
+WORD:
+		.db		"B", 0
+
+		.org	$150
 BTAB:
 		
 		.db		$60, $88, $A8, $90, $40, $28, $D0, $08, $20, $78, $B0, $48,$E0, $A0, $F0, $68, $D8, $50, $10, $C0, $30, $18, $70, $98, $B8, $C8, $00
 		//inget mellanslag
-
-
-/*COUNTER:
-		ldi		r18, 0
-LOOKUP:
-		ldi		ZH, HIGH (WORD*2)
-		ldi		ZL, LOW (WORD*2)
-		//brne	END
-		add		ZL, r18
-		lpm		r16, Z
-		inc		r18
-		ldi		ZH, HIGH (BTAB*2)
-		ldi		ZL, LOW (BTAB*2)
-INNRELOOP:
-		lpm		r17, Z
-		adiw	Z, 2
-		cp		r16, r17
-		breq	SEND
-		rjmp	INNRELOOP
-
-SEND:	
-		rjmp	LOOKUP
-		
-END:
-		rjmp	END
-*/

@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm Fri Nov 22 14:13:49 2019
+AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm Sun Nov 24 22:10:39 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
@@ -885,64 +885,72 @@ AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm Fri Nov 22 1
 000004 ef1f                      		ldi		r17, $FF
 000005 bb17                      		out		DDRB, r17
                                  START:
-000006 e0f0                      		ldi		ZH, HIGH (WORD*2)
-000007 e5ee                      		ldi		ZL, LOW (WORD*2)
+000006 e0f2                      		ldi		ZH, HIGH (WORD*2)
+000007 e0e0                      		ldi		ZL, LOW (WORD*2)
                                  LOOKUP:
 000008 9105                      		lpm		r16, Z+
 000009 3000                      		cpi		r16, 0
 00000a f3d9                      		breq	START
-00000b 5401                      		subi	r16, $41
-00000c 93ff                      		push	ZH
-00000d 93ef                      		push	ZL
-00000e e0f2                      		ldi		ZH, HIGH (BTAB*2)
-00000f eae0                      		ldi		ZL, LOW (BTAB*2)
-000010 0fe0                      		add		ZL, r16
-000011 9104                      		lpm		r16, Z
-000012 91ff                      		pop		ZH
-000013 91ef                      		pop		ZL
-000014 940e 0017                 		call	SEND
-000016 cff1                      		rjmp	LOOKUP
+00000b 3200                      		cpi		r16, $20
+00000c f061                      		breq	SPACE
+00000d 5401                      		subi	r16, $41
+00000e 93ff                      		push	ZH
+00000f 93ef                      		push	ZL
+000010 e0f2                      		ldi		ZH, HIGH (BTAB*2)
+000011 eae0                      		ldi		ZL, LOW (BTAB*2)
+000012 0fe0                      		add		ZL, r16
+000013 9104                      		lpm		r16, Z
+000014 91ef                      		pop		ZL
+000015 91ff                      		pop		ZH
+000016 940e 001a                 		call	SEND
+000018 cfef                      		rjmp	LOOKUP
                                  
+                                 SPACE:
+000019 cfee                      		rjmp	LOOKUP
+                                 
+                                 
+                                 ;--------------------------;
                                  SEND:
-000017 3800                      		cpi		r16, $80
-000018 f071                      		breq	RETURN
-000019 0f00                      		lsl		r16
-00001a f410                      		brcc	SHORT_BEEP
-00001b 940e 0020                 		call	SOUND
+00001a 3800                      		cpi		r16, $80
+00001b f071                      		breq	RETURN
+00001c 0f00                      		lsl		r16
+00001d f410                      		brcc	SHORT_BEEP
+00001e 940e 0023                 		call	SOUND
                                  SHORT_BEEP:
-00001d 940e 0020                 		call	SOUND
-00001f cff7                      		rjmp	SEND
+000020 940e 0023                 		call	SOUND
+000022 cff7                      		rjmp	SEND
                                  
                                  SOUND:
-000020 e011                      		ldi		r17, 1	//hur l√•ngt beepet ska va
+000023 e011                      		ldi		r17, 1	//hur l√•ngt beepet ska va
                                  WAVE:
-000021 ef2f                      		ldi		r18, $FF
-000022 bb28                      		out		PORTB, r18
+000024 ef2f                      		ldi		r18, $FF
+000025 bb28                      		out		PORTB, r18
                                  		;call	DELAY
-000023 e020                      		ldi		r18, $00
-000024 bb28                      		out		PORTB, r18
+000026 e020                      		ldi		r18, $00
+000027 bb28                      		out		PORTB, r18
                                  		;call	DELAY
-000025 951a                      		dec		r17
-000026 f7d1                      		brne	WAVE
+000028 951a                      		dec		r17
+000029 f7d1                      		brne	WAVE
                                  RETURN:
-000027 9508                      		ret
-                                 
+00002a 9508                      		ret
+                                 ;--------------------------;
                                  DELAY:
-000028 e04a                      		ldi		r20, 10
+00002b e04a                      		ldi		r20, 10
                                  YTTRE:
-000029 e15f                      		ldi		r21, $1F
+00002c e15f                      		ldi		r21, $1F
                                  INNRE:
-00002a 955a                      		dec		r21
-00002b f7f1                      		brne	INNRE
-00002c 954a                      		dec		r20
-00002d f7d9                      		brne	YTTRE
-00002e 9508                      		ret
-                                 		
-                                 WORD:
-00002f 4241
-000030 0043                      		.db		"ABC", 0
+00002d 955a                      		dec		r21
+00002e f7f1                      		brne	INNRE
+00002f 954a                      		dec		r20
+000030 f7d9                      		brne	YTTRE
+000031 9508                      		ret
                                  
-                                 .org	$150
+                                 ;--------------------------;	
+                                 		.org	$100
+                                 WORD:
+000100 0042                      		.db		"B", 0
+                                 
+                                 		.org	$150
                                  BTAB:
                                  		
 000150 8860
@@ -958,35 +966,8 @@ AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm Fri Nov 22 1
 00015a 1830
 00015b 9870
 00015c c8b8
-C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm(76): warning: .cseg .db misalignment - padding zero byte
+C:\Skit\KURSKOD\tsiu02\Lab_2\Morse‰ndre\main.asm(85): warning: .cseg .db misalignment - padding zero byte
 00015d 0000                      		.db		$60, $88, $A8, $90, $40, $28, $D0, $08, $20, $78, $B0, $48,$E0, $A0, $F0, $68, $D8, $50, $10, $C0, $30, $18, $70, $98, $B8, $C8, $00
-                                 		//inget mellanslag
-                                 
-                                 
-                                 /*COUNTER:
-                                 		ldi		r18, 0
-                                 LOOKUP:
-                                 		ldi		ZH, HIGH (WORD*2)
-                                 		ldi		ZL, LOW (WORD*2)
-                                 		//brne	END
-                                 		add		ZL, r18
-                                 		lpm		r16, Z
-                                 		inc		r18
-                                 		ldi		ZH, HIGH (BTAB*2)
-                                 		ldi		ZL, LOW (BTAB*2)
-                                 INNRELOOP:
-                                 		lpm		r17, Z
-                                 		adiw	Z, 2
-                                 		cp		r16, r17
-                                 		breq	SEND
-                                 		rjmp	INNRELOOP
-                                 
-                                 SEND:	
-                                 		rjmp	LOOKUP
-                                 		
-                                 END:
-                                 		rjmp	END
-                                 */
 
 
 RESOURCE USE INFORMATION
@@ -1006,7 +987,7 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :   0 y  :   0 z  :   2 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  11 r17:   4 r18:   4 r19:   0 r20:   2 
+r13:   0 r14:   0 r15:   0 r16:  12 r17:   4 r18:   4 r19:   0 r20:   2 
 r21:   2 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   5 r31:   4 
 Registers used: 8 out of 35 (22.9%)
@@ -1014,18 +995,18 @@ Registers used: 8 out of 35 (22.9%)
 "ATmega16A" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   1 brcs  :   0 break :   0 breq  :   2 brge  :   0 brhc  :   0 
+brcc  :   1 brcs  :   0 break :   0 breq  :   3 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
 brne  :   3 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   3 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   2 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
+cpi   :   3 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   0 
 ld    :   0 ldd   :   0 ldi   :  12 lds   :   0 lpm   :   3 lsl   :   1 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   5 pop   :   2 
-push  :   2 rcall :   0 ret   :   2 reti  :   0 rjmp  :   2 rol   :   0 
+push  :   2 rcall :   0 ret   :   2 reti  :   0 rjmp  :   3 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
@@ -1036,7 +1017,7 @@ Instructions used: 16 out of 113 (14.2%)
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0002bc     94     32    126   16384   0.8%
+[.cseg] 0x000000 0x0002bc    100     30    130   16384   0.8%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
