@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\Debug\Digitalur.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Digitalur.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Digitalur.map</FILE>
+  <FILE>Digitalur.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <INIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>13</LINE></INIT>
+  <INTERRUPT0><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>41</LINE></INTERRUPT0>
+  <INTERRUPT1><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>37</LINE></INTERRUPT1>
+  <START><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>34</LINE></START>
+ </LABELS>
+</ASSEMBLER_INFO>
