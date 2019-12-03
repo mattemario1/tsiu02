@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm Fri Nov 29 13:29:25 2019
+AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm Tue Dec 03 11:49:44 2019
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc'
@@ -875,12 +875,12 @@ AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm Fri Nov 29 13
                                  ; Created: 28/11/2019 12:05:03
                                  ; Author : Mattias
                                  
-                                 		.org	0
+                                 		.org	$00
 000000 c004                      		rjmp	INIT
-                                 		.org	INT0addr
-000002 c014                      		rjmp	INTERRUPT0
-                                 		.org	INT1addr
-000004 c00f                      		rjmp	INTERRUPT1
+                                 		.org	INT0addr	; =$02
+000002 c020                      		rjmp	INTERRUPT0
+                                 		.org	INT1addr	; =$04
+000004 c011                      		rjmp	INTERRUPT1
                                  INIT:
 000005 e004                      		ldi		r16, HIGH(RAMEND)
 000006 bf0e                      		out		SPH, r16
@@ -888,28 +888,54 @@ AVRASM ver. 2.2.7  C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm Fri Nov 29 13
 000008 bf0d                      		out		SPL, r16
                                  
                                  		;får interupten att aktivera till stigande strobe
-000009 e00a                      		ldi		r16, (1 << ISC01)|(0 << ISC00)|(1 << ISC11)|(0 << ISC10)
+000009 e00f                      		ldi		r16, (1 << ISC01)|(1 << ISC00)|(1 << ISC11)|(1 << ISC10)
 00000a bf05                      		out		MCUCR, r16
 00000b ec00                      		ldi		r16, (1 << INT0)|(1 << INT1)
 00000c bf0b                      		out		GICR, r16
-00000d 9478                      		sei
                                  
-                                 		;Gör D till output och B till input
-00000e e000                      		ldi		r16, $00
-00000f bb01                      		out		DDRD, r16
-000010 ef0f                      		ldi		r16, $FF
-000011 bb07                      		out		DDRB, r16
-000012 c000                      		rjmp	START
+                                 		;Gör A till output och D till input
+00000d e000                      		ldi		r16, $00
+00000e bb01                      		out		DDRD, r16
+00000f ef0f                      		ldi		r16, $FF
+000010 bb0a                      		out		DDRA, r16
+                                 		;
+000011 e006                      		ldi		r16, 0B00000110	;0B skriver in binärt. Kan skriva hex med 0x istället för $
+000012 bb02                      		out		PORTD, r16		;
+000013 9478                      		sei
+                                 
+000014 c000                      		rjmp	START
                                  		;
                                  
                                  START:
-000013 cfff                      		rjmp	START
+000015 cfff                      		rjmp	START
                                  
                                  INTERRUPT1:
-000014 e500                      		ldi		r16, 80
-000015 e604                      		ldi		r16, 100
-000016 cffc                      		rjmp	START
+                                 		;Pushar allt som kan ha används i MAIN/START
+000016 930f                      		push	r16
+000017 b70f                      		in		r16, SREG
+000018 930f                      		push	r16
+                                 		;
+000019 9100 0060                 		lds		r16, $60
+00001b 9503                      		inc		r16
+00001c 9300 0060                 		sts		$60, r16
+00001e bb0b                      		out		PORTA, r16
+                                 
+                                 		;Poppar allt som kan ha används i MAIN
+00001f 910f                      		pop		r16
+000020 bf0f                      		out		SREG, r16
+000021 910f                      		pop		r16
+                                 		;
+000022 9518                      		reti
                                  INTERRUPT0:
+                                 		;Pushar allt som kan ha används i MAIN/START
+000023 930f                      		push	r16
+000024 b70f                      		in		r16, SREG
+000025 930f                      		push	r16
+                                 		;Poppar allt som kan ha används i MAIN
+000026 910f                      		pop		r16
+000027 bf0f                      		out		SREG, r16
+000028 910f                      		pop		r16
+                                 		;
 
 
 RESOURCE USE INFORMATION
@@ -929,7 +955,7 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  14 r17:   0 r18:   0 r19:   0 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:  30 r17:   0 r18:   0 r19:   0 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
 Registers used: 1 out of 35 (2.9%)
@@ -944,22 +970,22 @@ brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
 cpi   :   0 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :   8 lds   :   0 lpm   :   0 lsl   :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   2 inc   :   1 jmp   :   0 
+ld    :   0 ldd   :   0 ldi   :   7 lds   :   1 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   6 pop   :   0 
-push  :   0 rcall :   0 ret   :   0 reti  :   0 rjmp  :   7 rol   :   0 
+neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :  10 pop   :   4 
+push  :   4 rcall :   0 ret   :   0 reti  :   2 rjmp  :   5 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
-sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
+sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   1 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 4 out of 113 (3.5%)
+Instructions used: 11 out of 113 (9.7%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000030     44      0     44   16384   0.3%
+[.cseg] 0x000000 0x000054     80      0     80   16384   0.5%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

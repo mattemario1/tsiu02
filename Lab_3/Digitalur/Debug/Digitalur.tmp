@@ -23,8 +23,8 @@
  </OUTPUT_FILES>
  <LABELS>
   <INIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>13</LINE></INIT>
-  <INTERRUPT0><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>41</LINE></INTERRUPT0>
-  <INTERRUPT1><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>37</LINE></INTERRUPT1>
-  <START><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>34</LINE></START>
+  <INTERRUPT0><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>58</LINE></INTERRUPT0>
+  <INTERRUPT1><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>41</LINE></INTERRUPT1>
+  <START><FILE>C:\Skit\KURSKOD\tsiu02\Lab_3\Digitalur\main.asm</FILE><LINE>38</LINE></START>
  </LABELS>
 </ASSEMBLER_INFO>
