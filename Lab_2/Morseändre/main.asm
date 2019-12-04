@@ -35,9 +35,9 @@ LOOKUP:
 		rjmp	LOOKUP
 
 SPACE:
+		ldi		r20, 1 //hur långt mellanslag ska va
+		call	DELAY
 		rjmp	LOOKUP
-
-
 ;--------------------------;
 SEND:
 		cpi		r16, $80
