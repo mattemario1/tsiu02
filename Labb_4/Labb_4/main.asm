@@ -225,4 +225,31 @@ ERASE:
 ; --- Uses :
 BEEP:
 	;*** skriv kod for ett ljud som ska markera traff ***
+	ldi		r17, BEEP_LENGTH
+	ldi		r18, BEEP_PITCH
+	call	WAVE
+	ldi		r18, BEEP_PITCH*2
+	call	WAVE
+	ret
+WAVE:
+	ldi		r16, 0xFF
+	out		PORTB, r16
+	call	DELAY
+	clr		r16
+	out		PORTB, r16
+	call	DELAY
+	dec		r17
+	brne	RETURN	;branch if minus?
+	rjmp	WAVE
+RETURN:
+	ret
+	
+DELAY:
+OUTER:
+	ldi		r19, 0xFF
+	dec		r19
+	brne	OUTER
+INNER:
+	dec		r18
+	brne	OUTER
 	ret
