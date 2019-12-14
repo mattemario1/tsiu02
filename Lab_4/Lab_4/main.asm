@@ -93,9 +93,8 @@ MUX:
 	;*** 	skriv rutin som handhar multiplexningen och ***
 	;*** 	utskriften till diodmatrisen. Öka SEED.		***
 
+	;
 	INCSRAM	SEED	
-
-
 	;Poppar allt som kan ha används i START
 	pop		r16
 	out		SREG, r16
@@ -110,10 +109,17 @@ MUX:
 	; --- Uses r16
 JOYSTICK:	
 
-;*** 	skriv kod som ökar eller minskar POSX beroende 	***
-;*** 	på insignalen från A/D-omvandlaren i X-led...	***
-
-;*** 	...och samma för Y-led 				***
+	;*** 	skriv kod som ökar eller minskar POSX beroende 	***
+	;*** 	på insignalen från A/D-omvandlaren i X-led...	***
+CONV:
+	sbi		ADCSRA, ADSC
+WAIT:
+	sbic	ADCSRA, ADSC
+	jmp		WAIT
+	in		r16, ADCH
+CHANGEXY:
+	
+	;*** 	...och samma för Y-led 				***
 
 JOY_LIM:
 	call	LIMITS		; don't fall off world!
@@ -195,9 +201,9 @@ SETBIT_END:
 	; --- Uses r16
 HW_INIT:
 
-;*** 	Konfigurera hårdvara och MUX-avbrott enligt ***
-;*** 	ditt elektriska schema. Konfigurera 		***
-;*** 	flanktriggat avbrott på INT0 (PD2).			***
+	;*** 	Konfigurera hårdvara och MUX-avbrott enligt ***
+	;*** 	ditt elektriska schema. Konfigurera 		***
+	;*** 	flanktriggat avbrott på INT0 (PD2).			***
 	ldi		r16, 0x00|(1 << ADLAR)
 	out		ADMUX, r16	;A is joystick input with only 8-bit in ADCH
 	ldi		r16, (1 << ADEN)
@@ -224,7 +230,7 @@ HW_INIT:
 	; --- WARM start. Set up a new game
 WARM:
 
-;*** 	Sätt startposition (POSX,POSY)=(0,2)		***
+	;*** 	Sätt startposition (POSX,POSY)=(0,2)		***
 	clr		r16
 	sts		POSX, r16	;set your X to 0
 	ldi		r16, 2
@@ -234,7 +240,7 @@ WARM:
 	;push	r0		
 	call	RANDOM		; RANDOM returns x,y on stack
 
-;*** 	Sätt startposition (TPOSX,POSY)				***
+	;*** 	Sätt startposition (TPOSX,POSY)				***
 
 	call	ERASE_VMEM
 	ret
@@ -268,11 +274,11 @@ OVERLIMIT:
 	sts		TPOSX, r16
 	ret		
 	
-;*** 	Använd SEED för att beräkna TPOSX		***
-;*** 	Använd SEED för att beräkna TPOSX		***
+	;*** 	Använd SEED för att beräkna TPOSX		***
+	;*** 	Använd SEED för att beräkna TPOSX		***
 
-;	***		; store TPOSX	2..6
-;	***		; store TPOSY   0..4
+	;	***		; store TPOSX	2..6
+	;	***		; store TPOSY   0..4
 ; ---------------------------------------
 
 

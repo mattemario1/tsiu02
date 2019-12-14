@@ -32,10 +32,10 @@
   <START><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>57</LINE></START>
   <MUX><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>85</LINE></MUX>
   <HW_INIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>196</LINE></HW_INIT>
-  <WARM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>222</LINE></WARM>
+  <WARM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>225</LINE></WARM>
   <RUN><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>66</LINE></RUN>
   <JOYSTICK><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>111</LINE></JOYSTICK>
-  <ERASE_VMEM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>283</LINE></ERASE_VMEM>
+  <ERASE_VMEM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>285</LINE></ERASE_VMEM>
   <UPDATE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>155</LINE></UPDATE>
   <NO_HIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>78</LINE></NO_HIT>
   <BEEP><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>310</LINE></BEEP>
@@ -48,9 +48,9 @@
   <SETBIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>181</LINE></SETBIT>
   <SETBIT_LOOP><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>183</LINE></SETBIT_LOOP>
   <SETBIT_END><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>188</LINE></SETBIT_END>
-  <RANDOM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>251</LINE></RANDOM>
-  <OVERLIMIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>264</LINE></OVERLIMIT>
-  <ZERO_VMEM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>289</LINE></ZERO_VMEM>
+  <RANDOM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>254</LINE></RANDOM>
+  <OVERLIMIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>265</LINE></OVERLIMIT>
+  <ZERO_VMEM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>291</LINE></ZERO_VMEM>
   <NOTES><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>307</LINE></NOTES>
   <SONG><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>320</LINE></SONG>
   <PAUSEMUSIC><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>329</LINE></PAUSEMUSIC>
