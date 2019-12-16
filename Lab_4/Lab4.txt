@@ -128,10 +128,10 @@ DISPLAY2:
 	INCSRAM	SEED	
 
 	;Poppar allt som kan ha anv?nds i START
+	pop		r17
 	pop		r16
 	out		SREG, r16
 	pop		r16
-	pop		r17
 	reti
 
 
@@ -147,10 +147,10 @@ MUXINC:
 	lsl		r16
 	out		PORTD, r16
 
-	ldi		ZH, HIGH(VMEM)
-	ldi		ZL, LOW(VMEM)
-	add		ZL, r17
-	ld		r16, Z
+	ldi		YH, HIGH(VMEM)
+	ldi		YL, LOW(VMEM)
+	add		YL, r17
+	ld		r16, Y
 	out		PORTB, r16
 	ret
 
@@ -195,12 +195,12 @@ DIRECTION:
 	breq	INCXY
 	cpi		r16, 0b00000000		
 	breq	DECXY
-	rjmp	CONVDONE
+	jmp		CONVDONE
 INCXY:
 	ld		r16, Z
 	inc		r16
 	st		Z, r16
-	rjmp	CONVDONE
+	jmp		CONVDONE
 DECXY:
 	ld		r16, Z
 	dec		r16
@@ -294,7 +294,7 @@ HW_INIT:
 	;*** 	Konfigurera h?rdvara och MUX-avbrott enligt ***
 	;*** 	ditt elektriska schema. Konfigurera 		***
 	;*** 	flanktriggat avbrott p? INT0 (PD2).			***
-	ldi		r16, (1 << ADEN)|(1 << ADPS0)|(1 << ADPS1)
+	ldi		r16, (1 << ADEN)|(1 << ADPS0)|(1 << ADPS1)|(0 << ADPS2)
 	out		ADCSRA, r16	;A/D enable, set AD clock to 8 
 
 
@@ -326,10 +326,13 @@ WARM:
 	ldi		r16, 2
 	sts		POSY, r16	;set your Y to 2
 	;
-	;push	r0		
-	;push	r0		
+	push	r0		
+	push	r0		
 	call	RANDOM		; RANDOM returns x,y on stack
-
+	pop		r16
+	pop		r17
+	sts		TPOSX, r16
+	sts		TPOSY, r17
 	;*** 	S?tt startposition (TPOSX,POSY)				***
 
 	call	ERASE_VMEM
@@ -348,17 +351,15 @@ WARM:
 	; ---	pop TPOSY
 	; --- Uses r16
 RANDOM:
-	;in		r16, SPH	;;;;har ingen aning vad detta ?r till f?r?;;;;
-	;mov	ZH, r16		;	
-	;in		r16, SPL	;
-	;mov	ZL, r16		;
+	in		ZH, SPH		
+	in		ZL, SPL	
 	;
 	call	RND0TO4
-	sts		TPOSY, r16
+	std		Z+4, r16
 	call	DELAY
 	call	RND0TO4
 	subi	r16, -2
-	sts		TPOSX, r16
+	std		Z+3, r16
 	ret
 	
 
