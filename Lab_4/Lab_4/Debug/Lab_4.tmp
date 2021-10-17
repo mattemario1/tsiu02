@@ -31,35 +31,38 @@
   <SEED><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>28</LINE></SEED>
   <START><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>57</LINE></START>
   <MUX><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>85</LINE></MUX>
-  <HW_INIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>196</LINE></HW_INIT>
-  <WARM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>225</LINE></WARM>
+  <HW_INIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>202</LINE></HW_INIT>
+  <WARM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>231</LINE></WARM>
   <RUN><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>66</LINE></RUN>
-  <JOYSTICK><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>111</LINE></JOYSTICK>
-  <ERASE_VMEM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>285</LINE></ERASE_VMEM>
-  <UPDATE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>155</LINE></UPDATE>
+  <JOYSTICK><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>110</LINE></JOYSTICK>
+  <ERASE_VMEM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>291</LINE></ERASE_VMEM>
+  <UPDATE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>161</LINE></UPDATE>
   <NO_HIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>78</LINE></NO_HIT>
-  <BEEP><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>310</LINE></BEEP>
-  <JOY_LIM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>118</LINE></JOY_LIM>
-  <LIMITS><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>127</LINE></LIMITS>
-  <POS_LIM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>138</LINE></POS_LIM>
-  <POS_LESS><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>144</LINE></POS_LESS>
-  <POS_OK><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>146</LINE></POS_OK>
-  <SETPOS><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>168</LINE></SETPOS>
-  <SETBIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>181</LINE></SETBIT>
-  <SETBIT_LOOP><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>183</LINE></SETBIT_LOOP>
-  <SETBIT_END><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>188</LINE></SETBIT_END>
-  <RANDOM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>254</LINE></RANDOM>
-  <OVERLIMIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>265</LINE></OVERLIMIT>
-  <ZERO_VMEM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>291</LINE></ZERO_VMEM>
-  <NOTES><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>307</LINE></NOTES>
-  <SONG><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>320</LINE></SONG>
-  <PAUSEMUSIC><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>329</LINE></PAUSEMUSIC>
-  <WAVE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>341</LINE></WAVE>
-  <SONGCONTINUE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>325</LINE></SONGCONTINUE>
-  <OUTER><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>331</LINE></OUTER>
-  <INNER><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>334</LINE></INNER>
-  <WAVEDELAY><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>356</LINE></WAVEDELAY>
-  <RETURN><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>352</LINE></RETURN>
-  <WINNER><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>358</LINE></WINNER>
+  <BEEP><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>316</LINE></BEEP>
+  <CONV><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>114</LINE></CONV>
+  <WAIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>116</LINE></WAIT>
+  <CHANGEXY><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>120</LINE></CHANGEXY>
+  <JOY_LIM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>124</LINE></JOY_LIM>
+  <LIMITS><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>133</LINE></LIMITS>
+  <POS_LIM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>144</LINE></POS_LIM>
+  <POS_LESS><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>150</LINE></POS_LESS>
+  <POS_OK><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>152</LINE></POS_OK>
+  <SETPOS><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>174</LINE></SETPOS>
+  <SETBIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>187</LINE></SETBIT>
+  <SETBIT_LOOP><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>189</LINE></SETBIT_LOOP>
+  <SETBIT_END><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>194</LINE></SETBIT_END>
+  <RANDOM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>260</LINE></RANDOM>
+  <OVERLIMIT><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>271</LINE></OVERLIMIT>
+  <ZERO_VMEM><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>297</LINE></ZERO_VMEM>
+  <NOTES><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>313</LINE></NOTES>
+  <SONG><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>326</LINE></SONG>
+  <PAUSEMUSIC><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>335</LINE></PAUSEMUSIC>
+  <WAVE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>347</LINE></WAVE>
+  <SONGCONTINUE><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>331</LINE></SONGCONTINUE>
+  <OUTER><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>337</LINE></OUTER>
+  <INNER><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>340</LINE></INNER>
+  <WAVEDELAY><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>362</LINE></WAVEDELAY>
+  <RETURN><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>358</LINE></RETURN>
+  <WINNER><FILE>C:\Skit\KURSKOD\tsiu02\Lab_4\Lab_4\main.asm</FILE><LINE>364</LINE></WINNER>
  </LABELS>
 </ASSEMBLER_INFO>

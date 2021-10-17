@@ -1,0 +1,33 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\Debug\LAX1.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>LAX1.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>LAX1.map</FILE>
+  <FILE>LAX1.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <START><FILE>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\main.asm</FILE><LINE>7</LINE></START>
+  <HW_INIT><FILE>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\main.asm</FILE><LINE>35</LINE></HW_INIT>
+  <MAIN_LOOP><FILE>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\main.asm</FILE><LINE>14</LINE></MAIN_LOOP>
+  <DISPLAY><FILE>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\main.asm</FILE><LINE>20</LINE></DISPLAY>
+  <DISPLAY_ONE><FILE>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\main.asm</FILE><LINE>29</LINE></DISPLAY_ONE>
+  <DISPLAY_TWO><FILE>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\main.asm</FILE><LINE>24</LINE></DISPLAY_TWO>
+  <DISPLAY_DONE><FILE>C:\Skit\KURSKOD\tsiu02\LAX1\LAX1\main.asm</FILE><LINE>32</LINE></DISPLAY_DONE>
+ </LABELS>
+</ASSEMBLER_INFO>

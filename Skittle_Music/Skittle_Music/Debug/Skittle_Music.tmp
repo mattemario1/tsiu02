@@ -1,0 +1,39 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\Debug\Skittle_Music.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Skittle_Music.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Skittle_Music.map</FILE>
+  <FILE>Skittle_Music.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <INIT><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>9</LINE></INIT>
+  <START><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>34</LINE></START>
+  <NOTE_LENGTH><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>20</LINE></NOTE_LENGTH>
+  <NOTES1><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>26</LINE></NOTES1>
+  <SONG1><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>45</LINE></SONG1>
+  <DELAY><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>82</LINE></DELAY>
+  <WAVE><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>59</LINE></WAVE>
+  <SONGCONTINUE><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>51</LINE></SONGCONTINUE>
+  <WAVEDELAY><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>74</LINE></WAVEDELAY>
+  <WAVE_DONE><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>70</LINE></WAVE_DONE>
+  <WINNER><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>76</LINE></WINNER>
+  <OUTER><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>85</LINE></OUTER>
+  <INNER><FILE>C:\Skit\KURSKOD\tsiu02\Skittle_Music\Skittle_Music\main.asm</FILE><LINE>88</LINE></INNER>
+ </LABELS>
+</ASSEMBLER_INFO>
